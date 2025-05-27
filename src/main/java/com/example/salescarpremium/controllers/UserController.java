@@ -22,6 +22,15 @@ public class UserController {
             throw new RuntimeException();
         }
     }
+    
+    @GetMapping("/{id}")
+    public UserDTO findUser(@PathVariable Long id) {
+        try {
+            return this.userService.findOneService(id).orElseThrow(() -> new RuntimeException("User not found"));
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+    }
 
     @PostMapping("/save")
     public UserDTO createUser(@RequestBody UserDTO userDTO) {
