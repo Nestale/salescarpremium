@@ -31,4 +31,13 @@ public class CarControllers {
             throw new RuntimeException();
         }
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteCar(@PathVariable Long id) {
+        try {
+            this.carService.deleteService(id);
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+    }
 }

@@ -43,5 +43,10 @@ public class CarServiceImpl implements CarService {
         Car car = modelMapper.map(carDTO, Car.class);
         return modelMapper.map(carDAO.save(car), CarDTO.class);
     }
+    
+    @Override
+    public void deleteService(Long id) {
+        carDAO.deleteById(id);
+    }
 
 }

@@ -40,4 +40,13 @@ public class UserController {
             throw new RuntimeException();
         }
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        try {
+            this.userService.deleteService(id);
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+    }
 } 
